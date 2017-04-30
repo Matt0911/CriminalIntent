@@ -1,6 +1,7 @@
 package com.bignerdranch.android.criminalintent;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.UUID;
  */
 
 public class CrimeLab {
+    private static String TAG = "CrimeLab";
     private static CrimeLab sCrimeLab;
 
     private List<Crime> mCrimes;
@@ -24,7 +26,9 @@ public class CrimeLab {
 
     private CrimeLab(Context context) {
         mCrimes = new ArrayList<>();
+        Log.d(TAG, "generating list");
         for (int i = 0; i < 100; i++) {
+            Log.d(TAG, "generating list" + i);
             Crime crime = new Crime();
             crime.setTitle("Crime #" + i);
             crime.setSolved(i % 2 == 0);
